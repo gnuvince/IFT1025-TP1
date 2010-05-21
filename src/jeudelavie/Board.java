@@ -40,7 +40,9 @@ public class Board {
     }
 
 
-
+    /**
+     * Compute the next generation of the game
+     */
     public void nextGeneration() {
         Board newBoard = new Board(rows, cols);
 
@@ -53,6 +55,12 @@ public class Board {
         board = newBoard.board;
     }
 
+    /**
+     * Compute the state of the next generation of a cell
+     * @param x the row of the cell
+     * @param y the column of the cell
+     * @return boolean describing if the cell is alive or dead
+     */
     public boolean nextGeneration(int x, int y) {
         int adjacent = occupiedAdjacentCells(x, y);
 
@@ -66,6 +74,12 @@ public class Board {
         return getCell(x, y);
     }
 
+    /**
+     * Count the number of occupied adjacent cells
+     * @param x the row of the cell
+     * @param y the column of the cell
+     * @return the number of neighbors
+     */
     public int occupiedAdjacentCells(int x, int y) {
         int occupied = 0;
 
@@ -83,6 +97,9 @@ public class Board {
     }
 
 
+    /**
+     * Return a string representation of the game board
+     */
     public String toString() {
         StringBuilder out = new StringBuilder();
         for (boolean[] row: board) {
