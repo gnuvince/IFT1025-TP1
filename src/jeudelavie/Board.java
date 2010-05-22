@@ -29,13 +29,13 @@ public class Board {
     }
 
     /**
-     * Set the value of a cell
+     * Set the value of a cell, unless it's out of bounds.
      * @param x the row
      * @param y the column
      * @param b the boolean value
      */
     public void setCell(int x, int y, boolean b) {
-        if (x < rows && y < cols)
+        if (x >= 0 && x < rows && y >= 0 && y < cols)
             board[x][y] = b;
     }
 
@@ -56,7 +56,11 @@ public class Board {
     }
 
     /**
-     * Compute the state of the next generation of a cell
+     * Compute the state of the next generation of a cell:
+     * 	 2-3 neighbors to an occupied cell: stay the same
+     *   3 neighbors to an empty cell: new cell
+     *   4+ neighbors: death from over-population
+     *   0-1 neighbors: death from starvation
      * @param x the row of the cell
      * @param y the column of the cell
      * @return boolean describing if the cell is alive or dead
