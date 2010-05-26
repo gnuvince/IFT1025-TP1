@@ -59,7 +59,7 @@ public class GUI
     private static Grille readFile(String file_name)
     {
         ArrayList<Point> cellules = null;
-        String ligne = null; // contient une ligne à la fois pendant la lecture
+        String ligne = null; // contient une ligne ÔøΩ la fois pendant la lecture
         Grille grille = null;
         try
         {
@@ -82,7 +82,7 @@ public class GUI
                     Point c = new Point(rangee,colonne);
                     cellules.add(c);
                 }
-            } while (ligne != null); // avant d'arriver à la fin de la lecture
+            } while (ligne != null); // avant d'arriver ÔøΩ la fin de la lecture
             BR.close();
         } catch (IOException E)
         { // erreur de lecture de fichier
@@ -91,6 +91,7 @@ public class GUI
             System.exit(2010);
         }
         grille.initCells(cellules);
+        System.out.println(grille.showGrille());
         return grille;
     }
 
@@ -108,21 +109,21 @@ public class GUI
 
         final JPanel grille_affichee = new JPanel();
         // initialiser l'objet de visualisation:
-        // on doit utiliser le mot de clé <code>final</code> ici,
-        // parce qu'il y a une référence dans la méthode
+        // on doit utiliser le mot de clÔøΩ <code>final</code> ici,
+        // parce qu'il y a une rÔøΩfÔøΩrence dans la mÔøΩthode
         // <code>actionPerformed</code> plus tard.
         int taille = G.getSize();
 
-        // ici on doit assurer que le JFrame prend la taille souhaitée
+        // ici on doit assurer que le JFrame prend la taille souhaitÔøΩe
         Dimension D = new Dimension(taille*POINT_SIZE, taille*POINT_SIZE);
         grille_affichee.setPreferredSize(D);
-        // on définit le titre
+        // on dÔøΩfinit le titre
         JFrame frame = new JFrame("Jeu de la vie");
-        // l'exécution est finie quand la fenêtre est fermée
+        // l'exÔøΩcution est finie quand la fenÔøΩtre est fermÔøΩe
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // on place l'affichage de la grille
         frame.add(grille_affichee, BorderLayout.CENTER);
-        JButton B = new JButton("Prochaine génération");
+        JButton B = new JButton("Prochaine g√©n√©ration");
         B.addActionListener(new ActionListener()
         {
             // si l'usager presse le bouton...
@@ -137,7 +138,7 @@ public class GUI
         frame.add(B, BorderLayout.SOUTH);
         // faire calculer les dimensions du JFrame:
         // grille_affichee, comme il est au centre (BorderLayout.CENTER),
-        // prend la dimension préferée (setPreferredSize);
+        // prend la dimension prÔøΩferÔøΩe (setPreferredSize);
         // le bouton prend sa dimension minimale parce qu'il est
         // en bas (BorderLayout.SOUTH)
         frame.pack();
