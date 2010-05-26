@@ -91,7 +91,6 @@ public class GUI
             System.exit(2010);
         }
         grille.initCells(cellules);
-        System.out.println(grille.showGrille());
         return grille;
     }
 
