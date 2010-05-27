@@ -1,10 +1,10 @@
 package jeudelavie;
 
 /**
- * Implementation d'une grille pour le Jeu de la vie (Devoir 1, IFT1025 ete 2010) 
+ * Implementation d'une grille pour le Jeu de la vie (Devoir 1, IFT1025 ete 2010)
  *
  * @author Vincent Foley-Bourgon - FOLV08078309 - foleybov@iro.umontreal.ca
- * @author Éric Thivierge
+ * @author Éric Thivierge - THIE09016601 - eric@thivierge.org
  */
 
 import java.util.ArrayList;
@@ -12,20 +12,20 @@ import java.awt.Point;
 
 import java.util.Arrays;
 
-public class Grille 
+public class Grille
 {
     private boolean[][] grille;
     private int taille;
     private int generation;
-    
+
     public Grille(int taille)
     {
         generation = 0;
         this.taille = taille;
         grille = new boolean[taille][taille];
     }
-    
-    
+
+
     /**
      * Assigner si une cellule est vivante ou pas
      * @param row la rangée d'une cellule
@@ -36,8 +36,8 @@ public class Grille
     {
         grille[row][col] = is_alive;
     }
-    
-    
+
+
     /**
      * Retourne si une cellule est vivante.
      * @param row la rangée de la cellule
@@ -49,7 +49,7 @@ public class Grille
         return grille[row][col];
     }
 
-    
+
     /**
      * @return la génération actuelle
      */
@@ -57,8 +57,8 @@ public class Grille
     {
         return generation;
     }
-    
-    
+
+
     /**
      * @return la taille de la grille
      */
@@ -66,8 +66,8 @@ public class Grille
     {
         return taille;
     }
-    
-    
+
+
     /**
      * Calcule l'état des cellules de la grille actuelle et met la grille à jour
      */
@@ -82,8 +82,8 @@ public class Grille
         generation++;
         grille = nouvelleGrille;
     }
-    
-    
+
+
     /**
      * Retourne le prochain état d'une cellule donnée
      * @param x la rangée de la cellule
@@ -101,8 +101,8 @@ public class Grille
         else
             return false;
     }
-    
-    
+
+
     /**
      * Compte le nombre de cellules vivantes autour d'une cellule donnée.
      * @param x la rangée de la cellule
@@ -125,10 +125,10 @@ public class Grille
         return neighbors;
     }
 
-    
+
     /**
      * Allume les points spécifiés dans le paramètre cellules
-     * 
+     *
      * @param cellules liste des points à allumer
      */
     public void initCells(ArrayList<Point> cellules)
@@ -136,10 +136,10 @@ public class Grille
         for (Point c: cellules) {
             setState(c.x, c.y, true);
         }
-        
+
     }
-    
-    
+
+
     public String showGrille() {
         String s = "";
         for (boolean[] a: grille) {
@@ -148,7 +148,7 @@ public class Grille
         }
         return s;
     }
-    
+
     /**
      * Return a string representation of the game board
      */

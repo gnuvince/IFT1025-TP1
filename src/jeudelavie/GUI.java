@@ -16,7 +16,6 @@ import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,7 +23,7 @@ import java.io.FileReader;
 import javax.swing.JPanel;
 import java.awt.Point;
 
-public class GUI 
+public class GUI
 {
     /**
      * Taille d'un point pour la visualisation de la grille.
@@ -41,10 +40,10 @@ public class GUI
     private static Grille random(int taille, double prob_alive)
     {
         ArrayList<Point> cellules = new ArrayList<Point>();
-        Random RND = new Random();
         for (int row=0; row<taille; row++)
             for (int col=0; col<taille; col++)
-                cellules.add(new Point(row,col));
+                if (Math.random() <= prob_alive)
+                    cellules.add(new Point(row,col));
         Grille G = new Grille(taille);
         G.initCells(cellules);
         return G;
@@ -106,7 +105,7 @@ public class GUI
         // au lieu de JPanel, utiliser
         // la sous-classe qui affiche la grille
 
-        final JPanel grille_affichee = new JPanel();
+        final GamePanel grille_affichee = new GamePanel(G, POINT_SIZE);
         // initialiser l'objet de visualisation:
         // on doit utiliser le mot de cl� <code>final</code> ici,
         // parce qu'il y a une r�f�rence dans la m�thode
