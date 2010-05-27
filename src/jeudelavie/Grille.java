@@ -14,15 +14,15 @@ import java.util.Arrays;
 
 public class Grille 
 {
-	private boolean[][] grille;
-	private int taille;
-	private int generation;
-	
+    private boolean[][] grille;
+    private int taille;
+    private int generation;
+    
     public Grille(int taille)
     {
-    	generation = 0;
-		this.taille = taille;
-    	grille = new boolean[taille][taille];
+        generation = 0;
+        this.taille = taille;
+        grille = new boolean[taille][taille];
     }
     
     
@@ -34,7 +34,7 @@ public class Grille
      */
     public void setState(int row, int col, boolean is_alive)
     {
-    	grille[row][col] = is_alive;
+        grille[row][col] = is_alive;
     }
     
     
@@ -46,7 +46,7 @@ public class Grille
      */
     public boolean isAlive(int row, int col)
     {
-    	return grille[row][col];
+        return grille[row][col];
     }
 
     
@@ -55,7 +55,7 @@ public class Grille
      */
     public int getGeneration()
     {
-    	return generation;
+        return generation;
     }
     
     
@@ -64,7 +64,7 @@ public class Grille
      */
     public int getSize()
     {
-    	return taille;
+        return taille;
     }
     
     
@@ -73,14 +73,14 @@ public class Grille
      */
     public void nextGeneration()
     {
-    	boolean[][] nouvelleGrille = new boolean[taille][taille];
-    	for (int i = 0; i < taille; ++i) {
-    		for (int j = 0; j < taille; ++j) {
-    			nouvelleGrille[i][j] = nextState(i, j);
-    		}
-    	}
-    	generation++;
-    	grille = nouvelleGrille;
+        boolean[][] nouvelleGrille = new boolean[taille][taille];
+        for (int i = 0; i < taille; ++i) {
+            for (int j = 0; j < taille; ++j) {
+                nouvelleGrille[i][j] = nextState(i, j);
+            }
+        }
+        generation++;
+        grille = nouvelleGrille;
     }
     
     
@@ -91,15 +91,15 @@ public class Grille
      * @return true/false si la cellule est vivante ou pas.
      */
     private boolean nextState(int x, int y) {
-    	int neighbors = countNeighbors(x, y);
-    	if (neighbors <= 1)
-    		return false;
-    	else if (neighbors == 2)
-    		return grille[x][y];
-    	else if (neighbors == 3)
-    		return true;
-    	else
-    		return false;
+        int neighbors = countNeighbors(x, y);
+        if (neighbors <= 1)
+            return false;
+        else if (neighbors == 2)
+            return grille[x][y];
+        else if (neighbors == 3)
+            return true;
+        else
+            return false;
     }
     
     
@@ -110,19 +110,19 @@ public class Grille
      * @return le nombre de cellules vivantes
      */
     private int countNeighbors(int x, int y) {
-    	int neighbors = 0;
-    	for (int i = x-1; i <= x+1; ++i) {
-    		for (int j = y-1; j <= y+1; ++j) {
-    			// Ne pas se vérifier soi-même.
-    			if (!(i == x && j == y)) {
-    				try {
-    					neighbors += grille[i][j] ? 1 : 0;
-    				}
-    				catch (ArrayIndexOutOfBoundsException e) {}
-    			}
-    		}
-    	}
-    	return neighbors;
+        int neighbors = 0;
+        for (int i = x-1; i <= x+1; ++i) {
+            for (int j = y-1; j <= y+1; ++j) {
+                // Ne pas se vérifier soi-même.
+                if (!(i == x && j == y)) {
+                    try {
+                        neighbors += grille[i][j] ? 1 : 0;
+                    }
+                    catch (ArrayIndexOutOfBoundsException e) {}
+                }
+            }
+        }
+        return neighbors;
     }
 
     
@@ -133,20 +133,20 @@ public class Grille
      */
     public void initCells(ArrayList<Point> cellules)
     {
-    	for (Point c: cellules) {
-    		setState(c.x, c.y, true);
-    	}
-    	
+        for (Point c: cellules) {
+            setState(c.x, c.y, true);
+        }
+        
     }
     
     
     public String showGrille() {
-    	String s = "";
-    	for (boolean[] a: grille) {
-    		s += Arrays.toString(a);
-    		s += "\n";
-    	}
-    	return s;
+        String s = "";
+        for (boolean[] a: grille) {
+            s += Arrays.toString(a);
+            s += "\n";
+        }
+        return s;
     }
     
     /**
