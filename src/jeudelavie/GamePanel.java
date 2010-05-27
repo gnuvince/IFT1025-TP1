@@ -14,6 +14,11 @@ public class GamePanel extends JPanel {
     }
 
 
+    /**
+     * On dessine chaque point de la grille dans le component.  Si la
+     * cellule est vivante, on affiche le point en noir, sinon on l'affiche
+     * en blanc.
+     */
     public void paintComponent(Graphics g) {
         for (int i = 0; i < grille.getSize(); ++i) {
             for (int j = 0; j < grille.getSize(); ++j) {
