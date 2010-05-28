@@ -26,11 +26,12 @@ public class GamePanel extends JPanel {
                     g.setColor(Color.BLACK);
                 else
                     g.setColor(Color.WHITE);
-                g.fillRect(i*point_size,
-                           j*point_size,
-                           point_size,
-                           point_size);
+                g.fillOval(i*point_size, j*point_size, point_size, point_size);
             }
         }
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, 150, 10);
+        g.setColor(Color.RED);
+        g.drawString("Génération: " + grille.getGeneration(), 1, 10); // Poor man's string conversion
     }
 }

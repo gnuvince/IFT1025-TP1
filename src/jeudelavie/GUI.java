@@ -58,7 +58,7 @@ public class GUI
     private static Grille readFile(String file_name)
     {
         ArrayList<Point> cellules = null;
-        String ligne = null; // contient une ligne � la fois pendant la lecture
+        String ligne = null; // contient une ligne à la fois pendant la lecture
         Grille grille = null;
         try
         {
@@ -81,7 +81,7 @@ public class GUI
                     Point c = new Point(rangee,colonne);
                     cellules.add(c);
                 }
-            } while (ligne != null); // avant d'arriver � la fin de la lecture
+            } while (ligne != null); // avant d'arriver à la fin de la lecture
             BR.close();
         } catch (IOException E)
         { // erreur de lecture de fichier
@@ -107,17 +107,17 @@ public class GUI
 
         final GamePanel grille_affichee = new GamePanel(G, POINT_SIZE);
         // initialiser l'objet de visualisation:
-        // on doit utiliser le mot de cl� <code>final</code> ici,
-        // parce qu'il y a une r�f�rence dans la m�thode
+        // on doit utiliser le mot de clé <code>final</code> ici,
+        // parce qu'il y a une référence dans la méthode
         // <code>actionPerformed</code> plus tard.
         int taille = G.getSize();
 
-        // ici on doit assurer que le JFrame prend la taille souhait�e
+        // ici on doit assurer que le JFrame prend la taille souhaitée
         Dimension D = new Dimension(taille*POINT_SIZE, taille*POINT_SIZE);
         grille_affichee.setPreferredSize(D);
-        // on d�finit le titre
+        // on définit le titre
         JFrame frame = new JFrame("Jeu de la vie");
-        // l'ex�cution est finie quand la fen�tre est ferm�e
+        // l'exécution est finie quand la fenêtre est fermée
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // on place l'affichage de la grille
         frame.add(grille_affichee, BorderLayout.CENTER);
@@ -136,7 +136,7 @@ public class GUI
         frame.add(B, BorderLayout.SOUTH);
         // faire calculer les dimensions du JFrame:
         // grille_affichee, comme il est au centre (BorderLayout.CENTER),
-        // prend la dimension pr�fer�e (setPreferredSize);
+        // prend la dimension préferée (setPreferredSize);
         // le bouton prend sa dimension minimale parce qu'il est
         // en bas (BorderLayout.SOUTH)
         frame.pack();
