@@ -1,2 +1,2 @@
 all:
-	javac -d bin src/jeudelavie/*.java
+	javac -encoding utf-8 -d bin src/jeudelavie/*.java
