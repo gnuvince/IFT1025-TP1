@@ -1,3 +1,11 @@
+/**
+ * Implementation d'une grille pour le Jeu de la vie (Devoir 1, IFT1025 ete 2010)
+ *
+ * @author Vincent Foley-Bourgon - FOLV08078309 - foleybov@iro.umontreal.ca
+ * @author Éric Thivierge - THIE09016601 - eric@thivierge.org
+ */
+
+
 package jeudelavie;
 
 import javax.swing.JPanel;
